@@ -16,17 +16,18 @@ struct KanyeResponse:Codable {
 
 class StateController: ObservableObject {
     
-    func getData() -> String {
+    @Published var quote:String = ""
+    
+    func getData(){
+        let url = URL(string: "https://api.kanye.rest/")!
+        
         let request = URLRequest(url: url)
         
-        URLSession.shared.dataTask(with: request) { (data, respomse, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data {
                 if let response = self.parseJson(json: data) {
-                    let names = response.results.map {
-                        return $0.name
-                    }
                     DispatchQueue.main.async {
-                        self.artistsByLocation = names.joined(separator: ", ")
+                        self.quote = response.quote
                     }
                 }
             }

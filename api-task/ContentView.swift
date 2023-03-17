@@ -14,19 +14,21 @@ let plum = Color("plum")
 
 
 struct ContentView: View {
-    @State private var output = "Hello World!"
+    @State private var output = "Kanye Quote"
+    @StateObject private var state = StateController()
     
     func go(){
-        output = getData()
+        state.getData()
+        output = state.quote
     }
     
     var body: some View {
         VStack{
             HStack{
-                Text("Title")
+                Text("Ye")
                     .font(.largeTitle)
                     .multilineTextAlignment(.leading)
-                    .padding(.leading, 2.0)
+                    .padding(.leading, 5.0)
                     .foregroundColor(niceBlack)
                 Spacer()
             }
