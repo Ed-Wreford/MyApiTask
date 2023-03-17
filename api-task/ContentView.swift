@@ -19,7 +19,7 @@ struct ContentView: View {
     
     func go(){
         state.getData()
-        output = "Original: \(state.quote)\n\nAi Response: \(getai(quote:state.quote))"
+        output = "\(state.quote)"
     }
     
     var body: some View {
@@ -52,8 +52,9 @@ struct ContentView: View {
                 go()
             }) {
                 HStack {
-                    Image(systemName: "target")
-                    Text("Go!")
+                    Image(systemName: "quote.bubble")
+                    Text("Get Quote")
+                    Image(systemName: "quote.bubble")
                 }
                 .padding(.vertical)
                 .frame(maxWidth: .infinity)
