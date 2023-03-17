@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+let etonBlue = Color("etonBlue")
+let niceBlack = Color("niceBlack")
+let uv = Color("uv")
+let plum = Color("plum")
+
+
 struct ContentView: View {
     @State private var output = ""
     
@@ -24,14 +30,14 @@ struct ContentView: View {
                 go()
             }) {
                 HStack {
-                    Image(systemName: "highlighter")
+                    Image(systemName: "target")
                     Text("Go!")
                 }
-                .foregroundColor(.white)
-                .background(LinearGradient(gradient: Gradient(colors: [.pink, .purple]), startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(40)
+                .padding(.vertical)
                 .frame(maxWidth: .infinity)
-                .padding()
+                .foregroundColor(.white)
+                .background(LinearGradient(gradient: Gradient(colors: [uv, plum]), startPoint: .leading, endPoint: .trailing))
+                .cornerRadius(40)
             }
             .padding()
         }
