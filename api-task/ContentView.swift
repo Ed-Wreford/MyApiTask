@@ -19,7 +19,7 @@ struct ContentView: View {
     
     func go(){
         state.getData()
-        output = state.quote
+        output = "Original: \(state.quote)\n\nAi Response: \(getai(quote:state.quote))"
     }
     
     var body: some View {
@@ -35,6 +35,7 @@ struct ContentView: View {
             
             VStack{
                 TextEditor(text: $output)
+                    .font(.caption)
             }
             .frame(minWidth: 0, maxWidth: 250)
             .disabled(true)
