@@ -14,7 +14,7 @@ let plum = Color("plum")
 
 
 struct ContentView: View {
-    @State private var output = ""
+    @State private var output = "Hello World!"
     
     func go(){
         output = getData()
@@ -22,9 +22,28 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            Text("Title")
-            TextEditor(text: $output)
-                .disabled(true)
+            HStack{
+                Text("Title")
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.leading)
+                    .padding(.leading, 2.0)
+                    .foregroundColor(niceBlack)
+                Spacer()
+            }
+            
+            VStack{
+                TextEditor(text: $output)
+            }
+            .frame(minWidth: 0, maxWidth: 250)
+            .disabled(true)
+            .foregroundColor(etonBlue)
+            .shadow(radius: 10)
+            .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(niceBlack, lineWidth: 5)
+                    )
+            
+            
             Spacer()
             Button(action: {
                 go()
