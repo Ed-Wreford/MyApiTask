@@ -89,7 +89,7 @@ func generateTextWithPrompt(prompt: String, model: String, apiKey: String) -> St
 }
 
 func getai(quote:String) -> String{
-    let prompt = "rephrase this kanye quote: \(quote) as a poem in less than 50 words."
+    let prompt = "translate this kanye quote: \(quote) into Chinese."
     let apiKey = "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"
     let model = "text-davinci-003"
     

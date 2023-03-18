@@ -19,7 +19,7 @@ struct ContentView: View {
     
     func go(){
         state.getData()
-        output = "\(state.quote)"
+        output = "Kanye: \(state.quote)\n\nAI Response: \(getai(quote:state.quote))"
     }
     
     var body: some View {
